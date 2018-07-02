@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="isHandset ? 'dialog' : 'navigation'"
+    [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+    [opened]="!(isHandset | async)!.matches">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink ="/" >
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span mat-line>Home</span>
+      </a>
+      <a mat-list-item routerLink ="items" routerLinkActive="active-link">
+          <mat-icon mat-list-icon  >
+          shopping_cart
+        </mat-icon>
+        <span mat-line>Items</span>
+      </a>
+      <a mat-list-item routerLink ="budget" [routerLinkActive]="['active-route']">
+        <mat-icon mat-list-icon>attach_money</mat-icon>
+        <span mat-line>Expences</span>
+      </a>
+      <a mat-list-item routerLink ="invitees">
+          <mat-icon mat-list-icon matBadge = "{{badgeCountTotal}}" matBadgeColor="warn">people</mat-icon>
+          <span mat-line>Invitees</span>
+        </a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink ="signin" *ngIf="!authenticate()">
+        <mat-icon mat-list-icon>
+            fingerprint
+        </mat-icon>
+        <span matLine>Login</span>
+      </a>
+      <a 
+        mat-list-item 
+        (click)="onLogout()"
+        *ngIf="authenticate()"
+        >
+        <mat-icon mat-list-icon>
+          lock
+        </mat-icon>
+        <span mat-line>Logout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset | async)!.matches">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Invitation</span>
+    </mat-toolbar>
+
+    <span class="example-fill-remaining-space"></span>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

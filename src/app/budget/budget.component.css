@@ -1,0 +1,44 @@
+
+.margin-bottom-10 {
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+
+  .icon-resize {
+    font-size: 1.7rem;
+    width: inherit;
+    height: 1.8rem;
+    vertical-align: middle;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.pull-right {
+  float: right ;
+}
+
+.full-width{
+  width: 100%;
+}
+
+#grad1 {
+  background-image: url("../../assets/images/money2.jpg");
+  background-repeat: repeat;
+  background-size: 100%;
+  background-color: #cccccc;
+}

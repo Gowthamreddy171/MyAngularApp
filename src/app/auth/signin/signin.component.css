@@ -1,0 +1,11 @@
+.margin-bottom-10 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #grad1 {
+    background-image: url("../../../assets/images/sigin.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #cccccc;
+}

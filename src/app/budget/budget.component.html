@@ -1,0 +1,65 @@
+<div class="row" id="grad1">
+  <div class="col-xs-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <mat-card class="margin-bottom-10">
+      <div class="row full-width">
+        <div class="col-md-7">
+          <mat-card-header>
+            <mat-icon mat-card-avatar>format_list_bulleted</mat-icon>
+            <mat-card-title>
+              Itemized Expences
+            </mat-card-title>
+          </mat-card-header>
+        </div>
+        <!-- <div class="col-md-5">
+          <div class="pull-right">
+            <button 
+              mat-raised-button 
+              color="primary" 
+              type="button" 
+              (click)="onSave()"
+            >
+              <mat-icon>save</mat-icon> Save
+            </button>
+          </div>
+        </div> -->
+      </div>
+      <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element; let i = index" [@list1]>
+                <a style="cursor: pointer" (click)="onSelect(i)"> {{element.name}}</a>
+              </td>
+              <td mat-footer-cell *matFooterCellDef> Total Cost </td>
+            </ng-container>
+
+            <!-- Anount Column -->
+            <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef> Amount </th>
+              <td mat-cell *matCellDef="let element" [@list1]>
+                <a style="cursor: pointer">{{element.amount}}</a>
+              </td>
+              <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+          </table>
+        </div>
+
+      </mat-card-content>
+      <app-budget-edit *ngIf = "email === 'ad@admin.com'" ></app-budget-edit>
+    </mat-card>
+  </div>
+</div>

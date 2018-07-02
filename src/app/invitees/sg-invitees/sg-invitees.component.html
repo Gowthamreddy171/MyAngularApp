@@ -1,0 +1,62 @@
+<div class="row fullWidth">
+    <div class="col-xs-11 col-sm-10 col-md-10 offset-xs-1 offset-sm-2 offset-md-1">
+      <div class="margin-bottom-10">
+        <div class="row">
+          <div class="col-md-5">
+            <mat-form-field>
+              <mat-select placeholder="Select your group" [(ngModel)]="selectedGroup" (ngModelChange)="onGroupSelected()">
+                <mat-option value="Engineering">Engineering</mat-option>
+                <mat-option value="Masters">Masters</mat-option>
+                <mat-option value="Rochester">Rochester</mat-option>
+                <mat-option value="OtherFriends">Other Friends</mat-option>
+                <mat-option value="all">All</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <!-- <div class="col-md-5 col-xs-5">
+              <div class="pull-right">
+                <button 
+                  mat-raised-button 
+                  color="primary" 
+                  type="button" 
+                  (click)="onSave()"
+                >
+                  <mat-icon>save</mat-icon> Save
+                </button>
+              </div>
+            </div> -->
+        </div>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+              <td mat-cell *matCellDef="let row">
+                <a style="cursor: pointer" (click)="onInviteeSelect(row.mainIndex)"> {{row.name}}</a>
+              </td>
+            </ng-container>
+  
+            <!-- Count Column -->
+            <ng-container matColumnDef="count">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Count </th>
+              <td mat-cell *matCellDef="let row" [style.color]="row.count == 'none' ? 'red' : row.count == 'first' ? 'blue' : 'green' "> {{row.count}} </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+          </table>
+  
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+        <hr>
+        <div>
+          <app-sg-invitee-edit *ngIf = "email === 'ad@admin.com'"></app-sg-invitee-edit>
+        </div>
+      </div>
+    </div>
+  </div>

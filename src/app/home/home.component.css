@@ -1,0 +1,163 @@
+
+.margin-10 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+.fixed-bg1 {
+    background-image: url("../../assets/images/Home-bg1.jpg");
+    min-height: 430px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fixed-bg2 {
+    background-image: url("../../assets/images/Home-bg2.jpg");
+    opacity: 0.2;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    min-height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gmap_canvas {overflow:hidden;background:none!important;}
+
+.width{
+    width: 100%
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.img2 {
+    float: right;
+}
+
+h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+h6{
+    word-spacing: 10px;
+    line-height: 1.8;
+    color: rgb(231, 209, 7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+/* parallax effect */
+/* .parallax {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .parallax__layer--base {
+    transform: translateZ(0);
+  }
+  .parallax__layer--back {
+    transform: translateZ(-1px);
+  } */
+
+  /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column1 {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .row1::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* Container needed to position the overlay. Adjust the width as needed */
+.containerZoom {
+    position: relative;
+  }
+  
+  /* Make the image to responsive */ /* commented so as not to override */
+  /* .image {
+    width: 100%;
+    height: auto;
+  } */
+  
+  /* The overlay effect (full height and width) - lays on top of the container and over the image */
+  .overlayZoom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-transform:scale(0);
+    transition: .3s ease;
+  }
+  
+  /* When you mouse over the container, the overlay text will "zoom" in display */
+  .containerZoom:hover .overlayZoom {
+    transform: scale(1)
+  }
+  
+  /* Some text inside the overlay, which is positioned in the middle vertically and horizontally */
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .overlaySlide {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .5s ease;
+  }
+  
+  .containerZoom:hover .overlaySlide {
+    bottom: 0;
+    height: 100%;
+  }
+
+  .overlayFade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+  }
+  
+  .containerZoom:hover .overlayFade {
+    opacity: 1;
+  }

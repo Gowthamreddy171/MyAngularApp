@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-md-11">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row">
+          <div class="col-md-5">
+            <mat-form-field >
+              <input 
+                type="text"
+                matInput
+                placeholder="Name"
+                name="name"
+                [(ngModel)] = "nameInput"
+                required
+              >
+              <mat-hint align="start"><strong>Enter your friend name</strong> </mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field class="width">
+                <mat-select placeholder="Count" required [(ngModel)] = "CountSelectedValue" name = "Count">
+                    <mat-option value="none">none</mat-option>
+                    <mat-option value="first">first</mat-option>
+                    <mat-option value="second">second</mat-option>
+                </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+              <mat-form-field class="width" >
+                  <mat-select placeholder="Location" required [(ngModel)] = "LocationSelectedValue" name = "Location">
+                      <mat-option value="Engineering">Engineering</mat-option>
+                      <mat-option value="Masters">Masters</mat-option>
+                      <mat-option value="Rochester">Rochester</mat-option>
+                      <mat-option value="OtherFriends">Other Friends</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+              <button 
+                mat-raised-button 
+                color="accent"
+                type="submit"
+                [disabled] = "!f.valid"
+              >
+                <mat-icon>{{ editMode ? 'update':'add_circle'}}</mat-icon> {{ editMode ? 'Update':'Add Item'}}
+              </button>
+              <button 
+                mat-raised-button 
+                color="warn"
+                type="button"
+                (click)="onDelete()"
+                *ngIf="editMode"
+              >
+                <mat-icon>delete</mat-icon> Delete
+              </button>
+              <button 
+                mat-raised-button 
+                color="primary"
+                type="button"
+                (click)="onClear()"
+              >
+                <mat-icon>clear</mat-icon> Clear
+              </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
