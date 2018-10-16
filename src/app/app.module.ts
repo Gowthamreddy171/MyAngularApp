@@ -33,6 +33,11 @@ import { SgInviteeEditComponent } from './invitees/sg-invitees/sg-invitee-edit/s
 import { SgInviteesService } from './invitees/sg-invitees/sg-invitees.service';
 import { InviteeService } from './invitees/invitee.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UploadService } from './shopping-items/upload.service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 
 @NgModule({
@@ -56,10 +61,13 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     AppRoutingModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     BrowserModule,
     BrowserAnimationsModule,
-    LayoutModule,
     FormsModule,
+    LayoutModule,
     HttpClientModule,
     MatBadgeModule,
     MatButtonModule,
@@ -88,6 +96,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HnDataStorageService,
     SgInviteesService,
     SgDataStorageService,
+    UploadService,
   ],
   bootstrap: [AppComponent]
 })

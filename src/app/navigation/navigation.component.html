@@ -12,22 +12,22 @@
         <mat-icon mat-list-icon>home</mat-icon>
         <span mat-line>Home</span>
       </a>
-      <a mat-list-item routerLink ="items" routerLinkActive="active-link">
+      <a mat-list-item routerLink ="items" routerLinkActive="active-link" >
           <mat-icon mat-list-icon  >
           shopping_cart
         </mat-icon>
         <span mat-line>Items</span>
       </a>
-      <a mat-list-item routerLink ="budget" [routerLinkActive]="['active-route']">
+      <a mat-list-item routerLink ="budget" [routerLinkActive]="['active-route']" >
         <mat-icon mat-list-icon>attach_money</mat-icon>
         <span mat-line>Expences</span>
       </a>
-      <a mat-list-item routerLink ="invitees">
+      <a mat-list-item routerLink ="invitees" >
           <mat-icon mat-list-icon matBadge = "{{badgeCountTotal}}" matBadgeColor="warn">people</mat-icon>
           <span mat-line>Invitees</span>
         </a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink ="signin" *ngIf="!authenticate()">
+      <a mat-list-item routerLink ="signin" *ngIf="!authenticate()" >
         <mat-icon mat-list-icon>
             fingerprint
         </mat-icon>

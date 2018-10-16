@@ -51,6 +51,13 @@ h6{
 
 }
 
+h5{
+  word-spacing: 10px;
+  color: rgb(123, 222, 240);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
 /* parallax effect */
 /* .parallax {
     perspective: 1px;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Upload } from '../upload';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-item-details',
@@ -8,20 +9,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  selectedFiles: FileList;
+  currentUpload: Upload;
+
+  constructor(private upSvc: UploadService) { }
 
   ngOnInit() {
   }
 
-  selectedFile = null;
-
-  onFileSelected(event){
-    console.log(event);
-    this.selectedFile = event.target.files[0];
+  detectFiles(event){
+    this.selectedFiles = event.target.files;
   }
 
-  onUpload(){
-    this.http.
+  uploadSingle(){
+    let file = this.selectedFiles.item(0);
+    this.currentUpload = new Upload(file);
+    this.upSvc.pushUpload(file);
   }
 
 }
